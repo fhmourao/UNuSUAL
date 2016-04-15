@@ -76,7 +76,10 @@ for user in user_recommendations:
 
 
 #calculating how many intervals there are
-size_interval = int(1/binsize)
+if 1%binsize==0:
+	size_interval = int(1/binsize)
+else:
+	size_interval = int(1/binsize)+1
 
 #creating a vector with the size of the intervals
 unexpectedness_intervals = [[] for i in range(size_interval)]
@@ -135,7 +138,10 @@ initial_interval = 0
 fout.write("Interval Metric1 Metric2 Metric3 Metric4 Metric5\n")
 maxy = 0
 for i in range(len(unexpectedness_intervals)):
-	fout.write(str(initial_interval)+"-"+str(initial_interval+binsize)+" ")
+	end = initial_interval+binsize
+	if end>1:
+		end = 1
+	fout.write(str(initial_interval)+"-"+str(end)+" ")
 	initial_interval += binsize
 
 	#passing through each metric and print its average popularity

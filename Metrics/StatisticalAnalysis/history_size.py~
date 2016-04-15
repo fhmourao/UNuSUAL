@@ -106,10 +106,7 @@ initial_interval = 0
 fout.write("Interval M1 M2 M3 M4 M5\n")
 maxy = 0
 for i in range(len(unexpectedness_intervals)):
-	end = initial_interval+binsize
-	if end>1:
-		end = 1
-	fout.write(str(initial_interval)+"-"+str(end)+" ")
+	fout.write(str(initial_interval)+"-"+str(initial_interval+binsize)+" ")
 	initial_interval += binsize
 
 	#passing through each metric and print its average popularity

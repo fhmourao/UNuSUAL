@@ -5,6 +5,7 @@
  */
 package unexpectednessevaluationtool;
 
+import java.awt.event.KeyEvent;
 import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileNotFoundException;
@@ -34,6 +35,8 @@ public class UnexpectednessEvaluationFrame extends javax.swing.JFrame {
     
     private static ParametersEvaluation parameters;
     private int contRecommendation = 0;
+    private String executionLog;
+    private String lastFolder = ".";
 
     /**
      * Creates new form UnexpectednessEvaluationFrame
@@ -100,9 +103,9 @@ public class UnexpectednessEvaluationFrame extends javax.swing.JFrame {
         jPanel8 = new javax.swing.JPanel();
         chkSimilarityAnalysis = new javax.swing.JCheckBox();
         jLabel4 = new javax.swing.JLabel();
-        rdbKendallTau = new javax.swing.JRadioButton();
-        rdbSpearman = new javax.swing.JRadioButton();
-        rdbPearson = new javax.swing.JRadioButton();
+        chkKendall = new javax.swing.JCheckBox();
+        chkPearson = new javax.swing.JCheckBox();
+        chkSpearman = new javax.swing.JCheckBox();
         jPanel4 = new javax.swing.JPanel();
         chkEnableCombinationAnalysis = new javax.swing.JCheckBox();
         jPanel11 = new javax.swing.JPanel();
@@ -119,7 +122,7 @@ public class UnexpectednessEvaluationFrame extends javax.swing.JFrame {
         jTable3 = new javax.swing.JTable();
         btnRun = new javax.swing.JButton();
         btnHelp = new javax.swing.JButton();
-        txtStatus = new javax.swing.JTextField();
+        lblStatus = new javax.swing.JLabel();
 
         jButton4.setText("jButton4");
 
@@ -151,6 +154,11 @@ public class UnexpectednessEvaluationFrame extends javax.swing.JFrame {
         tblRecommendationLists.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 tblRecommendationListsMouseClicked(evt);
+            }
+        });
+        tblRecommendationLists.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                tblRecommendationListsKeyReleased(evt);
             }
         });
         jScrollPane1.setViewportView(tblRecommendationLists);
@@ -519,6 +527,9 @@ public class UnexpectednessEvaluationFrame extends javax.swing.JFrame {
             public void keyPressed(java.awt.event.KeyEvent evt) {
                 txtBinSizeKeyPressed(evt);
             }
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                txtBinSizeKeyReleased(evt);
+            }
         });
 
         chkItemPopularity.setText("Item Popularity");
@@ -565,9 +576,9 @@ public class UnexpectednessEvaluationFrame extends javax.swing.JFrame {
                                 .addComponent(chkItemPopularity)
                                 .addGap(26, 26, 26)
                                 .addComponent(chkHistorySize)
-                                .addGap(61, 61, 61)
+                                .addGap(32, 32, 32)
                                 .addComponent(chkUserBias)))))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(303, Short.MAX_VALUE))
         );
         jPanel10Layout.setVerticalGroup(
             jPanel10Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -618,30 +629,27 @@ public class UnexpectednessEvaluationFrame extends javax.swing.JFrame {
 
         jLabel4.setText("Correlation Metrics");
 
-        buttonGroup1.add(rdbKendallTau);
-        rdbKendallTau.setText("Kendall-Tau");
-        rdbKendallTau.setEnabled(false);
-        rdbKendallTau.addActionListener(new java.awt.event.ActionListener() {
+        chkKendall.setText("Kendall");
+        chkKendall.setEnabled(false);
+        chkKendall.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                rdbKendallTauActionPerformed(evt);
+                chkKendallActionPerformed(evt);
             }
         });
 
-        buttonGroup1.add(rdbSpearman);
-        rdbSpearman.setText("Spearman");
-        rdbSpearman.setEnabled(false);
-        rdbSpearman.addActionListener(new java.awt.event.ActionListener() {
+        chkPearson.setText("Pearson");
+        chkPearson.setEnabled(false);
+        chkPearson.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                rdbSpearmanActionPerformed(evt);
+                chkPearsonActionPerformed(evt);
             }
         });
 
-        buttonGroup1.add(rdbPearson);
-        rdbPearson.setText("Pearson");
-        rdbPearson.setEnabled(false);
-        rdbPearson.addActionListener(new java.awt.event.ActionListener() {
+        chkSpearman.setText("Spearman");
+        chkSpearman.setEnabled(false);
+        chkSpearman.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                rdbPearsonActionPerformed(evt);
+                chkSpearmanActionPerformed(evt);
             }
         });
 
@@ -659,12 +667,12 @@ public class UnexpectednessEvaluationFrame extends javax.swing.JFrame {
                         .addGroup(jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jLabel4)
                             .addGroup(jPanel8Layout.createSequentialGroup()
-                                .addComponent(rdbKendallTau)
-                                .addGap(28, 28, 28)
-                                .addComponent(rdbSpearman)
+                                .addComponent(chkKendall, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(rdbPearson)))))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                                .addComponent(chkPearson)
+                                .addGap(18, 18, 18)
+                                .addComponent(chkSpearman)))))
+                .addContainerGap(393, Short.MAX_VALUE))
         );
         jPanel8Layout.setVerticalGroup(
             jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -673,11 +681,12 @@ public class UnexpectednessEvaluationFrame extends javax.swing.JFrame {
                 .addComponent(chkSimilarityAnalysis)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jLabel4)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(rdbKendallTau)
-                    .addComponent(rdbSpearman)
-                    .addComponent(rdbPearson)))
+                    .addComponent(chkKendall)
+                    .addComponent(chkPearson)
+                    .addComponent(chkSpearman))
+                .addGap(6, 6, 6))
         );
 
         javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
@@ -891,9 +900,7 @@ public class UnexpectednessEvaluationFrame extends javax.swing.JFrame {
 
         btnHelp.setText("Help");
         getContentPane().add(btnHelp, new org.netbeans.lib.awtextra.AbsoluteConstraints(660, 550, 70, -1));
-
-        txtStatus.setEditable(false);
-        getContentPane().add(txtStatus, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 550, 640, -1));
+        getContentPane().add(lblStatus, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 550, 630, 30));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -904,10 +911,8 @@ public class UnexpectednessEvaluationFrame extends javax.swing.JFrame {
     private void chkMetric1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_chkMetric1ActionPerformed
         if (chkMetric1.isSelected()){
             parameters.setMetric(0);
-            System.out.println("Checked");
         } else {
             parameters.unsetMetric(0);
-            System.out.println("Unchecked");
         }
     }//GEN-LAST:event_chkMetric1ActionPerformed
 
@@ -933,13 +938,14 @@ public class UnexpectednessEvaluationFrame extends javax.swing.JFrame {
     private void btnSelectConsumptionHistoryActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSelectConsumptionHistoryActionPerformed
         //Create a file chooser
         final JFileChooser fc = new JFileChooser();
-        fc.setCurrentDirectory(new java.io.File("."));
+        fc.setCurrentDirectory(new java.io.File(lastFolder));
         fc.setDialogTitle("Select the Consumption History file.");
         int returnVal = fc.showOpenDialog(UnexpectednessEvaluationFrame.this);
         if (returnVal == JFileChooser.APPROVE_OPTION) {
             File file = fc.getSelectedFile();
             parameters.setConsumptionHistoryFile(file.getAbsoluteFile().toString());
             lblConsumptionHistory.setText(file.getName());
+            lastFolder = file.getAbsoluteFile().toString();
         }
     }//GEN-LAST:event_btnSelectConsumptionHistoryActionPerformed
 
@@ -987,7 +993,7 @@ public class UnexpectednessEvaluationFrame extends javax.swing.JFrame {
         if (isPPM){
             if (parameters.getPPM().equals("")){
                 if (parameters.setPPM(file.getAbsoluteFile().toString())==true){
-                    model.addRow(new Object[]{contRecommendation, file.getName(), numberItems, numberRecommendations, "PPM", String.valueOf(file.length()/1024)+" KB"});
+                    model.addRow(new Object[]{contRecommendation, file.getName(), numberRecommendations, numberItems, "PPM", String.valueOf(file.length()/1024)+" KB"});
                 } else {
                     showMessageDialog(null, "The select ppm is in the table as a recommendation list. Please choose another PPM or delete the recommendation list from the table.");
                 }
@@ -1024,25 +1030,27 @@ public class UnexpectednessEvaluationFrame extends javax.swing.JFrame {
     private void btnAddRecommendationActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAddRecommendationActionPerformed
         //Create a file chooser
         final JFileChooser fc = new JFileChooser();
-        fc.setCurrentDirectory(new java.io.File("."));
+        fc.setCurrentDirectory(new java.io.File(lastFolder));
         fc.setDialogTitle("Select a Recommendation file.");
         int returnVal = fc.showOpenDialog(UnexpectednessEvaluationFrame.this);
         if (returnVal == JFileChooser.APPROVE_OPTION) {
             File file = fc.getSelectedFile();
             insertRecommendationList(file, false);
+            lastFolder = file.getAbsoluteFile().toString();
         }
     }//GEN-LAST:event_btnAddRecommendationActionPerformed
 
     private void btnSelectItemsFeaturesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSelectItemsFeaturesActionPerformed
         //Create a file chooser
         final JFileChooser fc = new JFileChooser();
-        fc.setCurrentDirectory(new java.io.File("."));
+        fc.setCurrentDirectory(new java.io.File(lastFolder));
         fc.setDialogTitle("Select the Items Features file.");
         int returnVal = fc.showOpenDialog(UnexpectednessEvaluationFrame.this);
         if (returnVal == JFileChooser.APPROVE_OPTION) {
             File file = fc.getSelectedFile();
             parameters.setItemsFeatures(file.getAbsoluteFile().toString());
             lblItemsFeaturesFile.setText(file.getName());
+            lastFolder = file.getAbsoluteFile().toString();
         }
     }//GEN-LAST:event_btnSelectItemsFeaturesActionPerformed
 
@@ -1122,14 +1130,14 @@ public class UnexpectednessEvaluationFrame extends javax.swing.JFrame {
     */
     private void chkSimilarityAnalysisActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_chkSimilarityAnalysisActionPerformed
         if (chkSimilarityAnalysis.isSelected()){
-            rdbKendallTau.setEnabled(true);
-            rdbPearson.setEnabled(true);
-            rdbSpearman.setEnabled(true);
+            chkKendall.setEnabled(true);
+            chkPearson.setEnabled(true);
+            chkSpearman.setEnabled(true);
             parameters.setSimilarityAnalysis(true);
         } else {
-            rdbKendallTau.setEnabled(false);
-            rdbPearson.setEnabled(false);
-            rdbSpearman.setEnabled(false);
+            chkKendall.setEnabled(false);
+            chkPearson.setEnabled(false);
+            chkSpearman.setEnabled(false);
             parameters.setSimilarityAnalysis(false);
         }
     }//GEN-LAST:event_chkSimilarityAnalysisActionPerformed
@@ -1205,44 +1213,11 @@ public class UnexpectednessEvaluationFrame extends javax.swing.JFrame {
     */
     private void chkUserBiasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_chkUserBiasActionPerformed
         if (chkUserBias.isSelected()){
-            parameters.setHistorySize(true);
+            parameters.setUserBias(true);
         } else {
-            parameters.setHistorySize(false);
+            parameters.setUserBias(false);
         }
     }//GEN-LAST:event_chkUserBiasActionPerformed
-
-    /*
-    Set the kendall tau analysis
-    */
-    private void rdbKendallTauActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rdbKendallTauActionPerformed
-        if (rdbKendallTau.isSelected()){
-            parameters.setCorrelationMetric("kendall");
-        } else {
-            parameters.setCorrelationMetric("");
-        }
-    }//GEN-LAST:event_rdbKendallTauActionPerformed
-
-    /*
-    Set the spearman analysis
-    */
-    private void rdbSpearmanActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rdbSpearmanActionPerformed
-        if (rdbSpearman.isSelected()){
-            parameters.setCorrelationMetric("spearman");
-        } else {
-            parameters.setCorrelationMetric("");
-        }
-    }//GEN-LAST:event_rdbSpearmanActionPerformed
-
-    /*
-    Set the Pearson analysis
-    */
-    private void rdbPearsonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rdbPearsonActionPerformed
-        if (rdbPearson.isSelected()){
-            parameters.setCorrelationMetric("pearson");
-        } else {
-            parameters.setCorrelationMetric("");
-        }
-    }//GEN-LAST:event_rdbPearsonActionPerformed
 
     /*
     Set the combination analysis
@@ -1329,7 +1304,7 @@ public class UnexpectednessEvaluationFrame extends javax.swing.JFrame {
             return;
         }
         
-        // checking whether the ppm wsa selected.
+        // checking whether the ppm was selected.
         if (parameters.getPPM().equals("")){
             showMessageDialog(null, "No PPM list was selected.");
             return;
@@ -1338,12 +1313,6 @@ public class UnexpectednessEvaluationFrame extends javax.swing.JFrame {
         //checking whether the outputfolder was selected.
         if (parameters.getOutputFolder().equals("")){
             showMessageDialog(null, "No output folder was selected.");
-            return;
-        }
-        
-        //Checking whether the output folder was set.
-        if (parameters.getOutputFolder().equals("")){
-            showMessageDialog(null, "No output folder was presented.");
             return;
         }
         
@@ -1370,15 +1339,20 @@ public class UnexpectednessEvaluationFrame extends javax.swing.JFrame {
         
         //Check whether the statistic analysis is ok.
         if (parameters.getStatisticalAnalysis()==1){
-            if (((parameters.getHistorySize()==0) && (parameters.getItemPopularity()==0) && (parameters.getUserBias()==0))||(parameters.getBinSize()==0)){
+            if ((parameters.getHistorySize()==0) && (parameters.getItemPopularity()==0) && (parameters.getUserBias()==0)){
                 showMessageDialog(null, "Statistical Analysis is selected but no calculus were selected.");
+                return;
+            }
+            
+            if (parameters.getBinSize()==0){
+                showMessageDialog(null, "Invalid value for the bin size.");
                 return;
             }
         }
         
         //Check whether the similarity analysis is ok.
         if (parameters.getSimilarityAnalysis()==1){
-            if (parameters.getCorrelationMetric().equals("")){
+            if ((parameters.getKendall()==0) && (parameters.getPearson()==0)&&(parameters.getSpearman()==0)){
                 showMessageDialog(null, "Similarity Analysis was selected but no correlation metric was selected.");
                 return;
             }
@@ -1427,7 +1401,9 @@ public class UnexpectednessEvaluationFrame extends javax.swing.JFrame {
                 writer.print("historysize="+String.valueOf(parameters.getHistorySize())+"\n");
                 writer.print("userbias="+String.valueOf(parameters.getUserBias())+"\n");
                 writer.print("similarity="+String.valueOf(parameters.getSimilarityAnalysis())+"\n");
-                writer.print("correlation=\""+String.valueOf(parameters.getCorrelationMetric())+"\"\n");
+                writer.print("kendall="+String.valueOf(parameters.getKendall())+"\n");
+                writer.print("pearson="+String.valueOf(parameters.getPearson())+"\n");
+                writer.print("spearman="+String.valueOf(parameters.getSpearman())+"\n");
 
 
                 //printing the combination
@@ -1446,6 +1422,8 @@ public class UnexpectednessEvaluationFrame extends javax.swing.JFrame {
                 Logger.getLogger(UnexpectednessEvaluationFrame.class.getName()).log(Level.SEVERE, null, ex);
             }
             
+            //Running the runtime. It blocks the main threa, attempt to use new Thread and use
+            // the swing utilities for invoke it later.
             Scanner scan = new Scanner(System.in);
             String line;
             try{
@@ -1457,7 +1435,8 @@ public class UnexpectednessEvaluationFrame extends javax.swing.JFrame {
                 BufferedReader reader = new BufferedReader(new InputStreamReader(stdout));
 
                 while((line = reader.readLine())!=null){
-                    System.out.println(line);
+                    lblStatus.setText(line);
+                    executionLog = executionLog + line + "\n";
                 }
 
             } catch (IOException e) {
@@ -1472,20 +1451,18 @@ public class UnexpectednessEvaluationFrame extends javax.swing.JFrame {
     }//GEN-LAST:event_txtBinSizeActionPerformed
 
     private void txtBinSizeKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtBinSizeKeyPressed
-        if (evt.getKeyCode()==13){
-            try{
-                parameters.setBinSize(Float.parseFloat(txtBinSize.getText()));
-            } catch (Exception e){
-                showMessageDialog(null, "Invalid value for the bin size.");
-                return;
-            }
+        try{
+            parameters.setBinSize(Float.parseFloat(txtBinSize.getText()));
+        } catch (Exception e){
+            parameters.setBinSize(0);
+            return;
         }
     }//GEN-LAST:event_txtBinSizeKeyPressed
 
     private void btnOutputFolderActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnOutputFolderActionPerformed
         //Create a file chooser
         final JFileChooser fc = new JFileChooser();
-        fc.setCurrentDirectory(new java.io.File("."));
+        fc.setCurrentDirectory(new java.io.File(lastFolder));
         fc.setDialogTitle("Select the Output Directory.");
         fc.setFileSelectionMode(JFileChooser.DIRECTORIES_ONLY);
         int returnVal = fc.showOpenDialog(UnexpectednessEvaluationFrame.this);
@@ -1493,31 +1470,81 @@ public class UnexpectednessEvaluationFrame extends javax.swing.JFrame {
             File file = fc.getSelectedFile();
             parameters.setOutputFolder(file.getAbsoluteFile().toString());
             lblOutput.setText(".../"+file.getName());
+            lastFolder = file.getAbsoluteFile().toString();
         }
     }//GEN-LAST:event_btnOutputFolderActionPerformed
 
     private void btnPPMActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPPMActionPerformed
         //Create a file chooser
         final JFileChooser fc = new JFileChooser();
-        fc.setCurrentDirectory(new java.io.File("."));
+        fc.setCurrentDirectory(new java.io.File(lastFolder));
         fc.setDialogTitle("Select the Primitive Prediction Model file.");
         int returnVal = fc.showOpenDialog(UnexpectednessEvaluationFrame.this);
         if (returnVal == JFileChooser.APPROVE_OPTION) {
             File file = fc.getSelectedFile();
             insertRecommendationList(file, true);
+            lastFolder = file.getAbsoluteFile().toString();
         }
     }//GEN-LAST:event_btnPPMActionPerformed
 
     private void tblRecommendationListsMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tblRecommendationListsMouseClicked
         int row = tblRecommendationLists.getSelectedRow();
-        DefaultTableModel model = (DefaultTableModel) tblRecommendationLists.getModel();
-        if (model.getValueAt(row, 4).equals("PPM")){
-            parameters.setPPM("");
-        } else {
-            parameters.removeRecommendationList(Integer.parseInt(model.getValueAt(row, 0).toString()));
+        int col = tblRecommendationLists.getSelectedColumn();
+        if (col==0){
+            DefaultTableModel model = (DefaultTableModel) tblRecommendationLists.getModel();
+            if (model.getValueAt(row, 4).equals("PPM")){
+                parameters.setPPM("");
+            } else {
+                parameters.removeRecommendationList(Integer.parseInt(model.getValueAt(row, 0).toString()));
+            }
+            model.removeRow(tblRecommendationLists.getSelectedRow());
         }
-        model.removeRow(tblRecommendationLists.getSelectedRow());
     }//GEN-LAST:event_tblRecommendationListsMouseClicked
+
+    private void chkKendallActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_chkKendallActionPerformed
+        if (chkKendall.isSelected()){
+            parameters.setKendall(true);
+        } else {
+            parameters.setKendall(false);
+        }
+    }//GEN-LAST:event_chkKendallActionPerformed
+
+    private void chkPearsonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_chkPearsonActionPerformed
+        if (chkPearson.isSelected()){
+            parameters.setPearson(true);
+        } else {
+            parameters.setPearson(false);
+        }
+    }//GEN-LAST:event_chkPearsonActionPerformed
+
+    private void chkSpearmanActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_chkSpearmanActionPerformed
+        if (chkSpearman.isSelected()){
+            parameters.setSpearman(true);
+        } else {
+            parameters.setSpearman(false);
+        }
+    }//GEN-LAST:event_chkSpearmanActionPerformed
+
+    private void txtBinSizeKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtBinSizeKeyReleased
+        try{
+            parameters.setBinSize(Float.parseFloat(txtBinSize.getText()));
+        } catch (Exception e){
+            parameters.setBinSize(0);
+            return;
+        }
+    }//GEN-LAST:event_txtBinSizeKeyReleased
+
+    private void tblRecommendationListsKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_tblRecommendationListsKeyReleased
+        if (evt.getKeyCode()==KeyEvent.VK_ENTER){
+            System.out.println("Cheguei");
+            int row = tblRecommendationLists.getSelectedRow();
+            int col = tblRecommendationLists.getSelectedColumn();
+            if (col==1){
+                DefaultTableModel model = (DefaultTableModel) tblRecommendationLists.getModel();
+                parameters.changeNameGivenID(Integer.parseInt(model.getValueAt(row, 0).toString()), model.getValueAt(row, 1).toString());
+            }
+        }
+    }//GEN-LAST:event_tblRecommendationListsKeyReleased
 
     /**
      * @param args the command line arguments
@@ -1573,6 +1600,7 @@ public class UnexpectednessEvaluationFrame extends javax.swing.JFrame {
     private javax.swing.JCheckBox chkHistorySize;
     private javax.swing.JCheckBox chkItemPopularity;
     private javax.swing.JCheckBox chkKPCA;
+    private javax.swing.JCheckBox chkKendall;
     private javax.swing.JCheckBox chkMean;
     private javax.swing.JCheckBox chkMedian;
     private javax.swing.JCheckBox chkMetric1;
@@ -1581,9 +1609,11 @@ public class UnexpectednessEvaluationFrame extends javax.swing.JFrame {
     private javax.swing.JCheckBox chkMetric4;
     private javax.swing.JCheckBox chkMetric5;
     private javax.swing.JCheckBox chkPCA;
+    private javax.swing.JCheckBox chkPearson;
     private javax.swing.JCheckBox chkRank;
     private javax.swing.JCheckBox chkSVD;
     private javax.swing.JCheckBox chkSimilarityAnalysis;
+    private javax.swing.JCheckBox chkSpearman;
     private javax.swing.JCheckBox chkStandardDeviation;
     private javax.swing.JCheckBox chkUserBias;
     private javax.swing.JButton jButton4;
@@ -1618,13 +1648,10 @@ public class UnexpectednessEvaluationFrame extends javax.swing.JFrame {
     private javax.swing.JLabel lblConsumptionHistory;
     private javax.swing.JLabel lblItemsFeaturesFile;
     private javax.swing.JLabel lblOutput;
+    private javax.swing.JLabel lblStatus;
     private javax.swing.JList<String> lstKernel;
-    private javax.swing.JRadioButton rdbKendallTau;
-    private javax.swing.JRadioButton rdbPearson;
-    private javax.swing.JRadioButton rdbSpearman;
     private javax.swing.JTable tblNewMetrics;
     private javax.swing.JTable tblRecommendationLists;
     private javax.swing.JTextField txtBinSize;
-    private javax.swing.JTextField txtStatus;
     // End of variables declaration//GEN-END:variables
 }

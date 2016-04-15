@@ -14,6 +14,7 @@ soma <- 0
 for (i in 1:length(r$d)){
 	soma <- soma + r$d[i]
 }
+print(r$d[1]/soma)
 
 sink(fileoutput)
 for (i in 1:nrow(f1)){

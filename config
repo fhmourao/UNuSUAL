@@ -3,29 +3,31 @@ history="/var/tmp/Thiago/Hybridization/RecommendationFramework/MD/Datasets/100k/
 featuresfile="/var/tmp/Thiago/Hybridization/RecommendationFramework/MD/Datasets/100k/u.item.solved"
 recommendation="/var/tmp/Thiago/Hybridization/RecommendationFramework/MD/Experiments/100k/Recommendations/top100/UserKNN/predictions_top-100.out"
 ppm="/var/tmp/Thiago/Hybridization/RecommendationFramework/MD/Experiments/100k/Recommendations/top100/Nonpersonalized/predictions_top-100.out"
-outputpath="/home/labpi/NetBeansProjects/UnexpectednessEvaluationTool"
-outputname="predictions_top-100.out"
+outputpath="/home/labpi/Documentos"
+outputname="Userknn"
 top="100"
 
 #metrics
-metrics="1 2 3 4 5"
+metrics="1 2 3"
 
 #characterization
 statisticalSummarization=1
 mean=1
 median=1
 sd=1
-rank=0
-statisticalAnalysis=0
-binSize=0.0
-itemPopularity=0
-historysize=0
-userbias=0
+rank=1
+statisticalAnalysis=1
+binSize=0.1
+itemPopularity=1
+historysize=1
+userbias=1
 similarity=1
-correlation="kendall"
+kendall=1
+pearson=1
+spearman=1
 #combination
-combination=1
+combination=0
 svd=1
-pca=1
-kpca=1
+pca=0
+kpca=0
 kernel="rbfdot"

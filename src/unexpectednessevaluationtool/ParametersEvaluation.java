@@ -43,7 +43,9 @@ public class ParametersEvaluation {
     private float   binSize;
     
     private boolean similarityAnalysis;
-    private String correlationMetric;
+    private boolean kendall;
+    private boolean pearson;
+    private boolean spearman;
     
     private boolean combinationAnalysis;
     private boolean svd;
@@ -80,7 +82,9 @@ public class ParametersEvaluation {
         
         //disabling similarity
         this.similarityAnalysis = false;
-        this.correlationMetric = "";
+        this.kendall = false;
+        this.spearman = false;
+        this.pearson = false;
         
         this.combinationAnalysis = false;
         this.svd = false;
@@ -160,6 +164,15 @@ public class ParametersEvaluation {
         this.recommendationLists.remove(fullName);
         this.topNRecommendationLists.remove(fullName);
         this.recommendationID.remove(id);
+    }
+    
+    public void changeNameGivenID(int id, String outputname){
+        String fullName = this.recommendationID.get(id);
+        this.recommendationLists.remove(fullName);
+        this.recommendationLists.put(fullName, outputname);
+        int topn = this.topNRecommendationLists.get(fullName);
+         this.topNRecommendationLists.remove(fullName);
+        this.topNRecommendationLists.put(fullName, topn);
     }
 
     /*
@@ -318,13 +331,27 @@ public class ParametersEvaluation {
         this.binSize = binSize;
     }
    
+    /*
+    Set the kendall similarity to true of false
+    */
+    public void setKendall(boolean kendall){
+        this.kendall = kendall;
+    }
+    
+    /*
+    Set the kendall similarity to true of false
+    */
+    public void setPearson(boolean pearson){
+        this.pearson = pearson;
+    }
 
     /*
-    Set the correlation Metrics
+    Set the kendall similarity to true of false
     */
-    public void setCorrelationMetric(String correlationMetric) {
-        this.correlationMetric = correlationMetric;
+    public void setSpearman(boolean spearman){
+        this.spearman = spearman;
     }
+
 
     /*
     Set the svd Analysis
@@ -428,8 +455,34 @@ public class ParametersEvaluation {
         return 0;
     }
 
-    public String getCorrelationMetric() {
-        return correlationMetric.toLowerCase();
+    /*
+    get if kendall is set or not.
+    */
+    public int getKendall() {
+        if (this.kendall==true){
+            return 1;
+        }
+        return 0;
+    }
+    
+    /*
+    get if kendall is set or not.
+    */
+    public int getPearson() {
+        if (this.pearson==true){
+            return 1;
+        }
+        return 0;
+    }
+    
+    /*
+    get if kendall is set or not.
+    */
+    public int getSpearman() {
+        if (this.spearman==true){
+            return 1;
+        }
+        return 0;
     }
 
     public int getCombinationAnalysis() {

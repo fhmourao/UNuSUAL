@@ -182,7 +182,7 @@ if [[ ${similarity} == "1" ]]; then
 
 	#Calculating the spearman correlation
 	if [[ ${spearman} == '1' ]]; then
-		python correlation.py ${outputpath}/${outputname}/Results/SimilarityAnalysis spearman ${metrics_join}
+		python correlation.py ${outputpath}/${outputname}/Results/SimilarityAnalysis pearson ${metrics_join}
 	fi 
 
 else
