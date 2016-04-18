@@ -10,10 +10,13 @@ r <- svd(f1)
 #v <- as.matrix(r$v[, 1:dim])
 #d <- as.matrix(diag(r$d)[1:dim, 1:dim])
 
-soma <- 0
-for (i in 1:length(r$d)){
-	soma <- soma + r$d[i]
-}
+#soma <- 0
+#for (i in 1:length(r$d)){
+#	soma <- soma + r$d[i]
+#}
+#print(r$d[1]/soma)
+print("Variance of each component. ")
+head(r$d^2/sum(r$d^2))
 
 sink(fileoutput)
 for (i in 1:nrow(f1)){
