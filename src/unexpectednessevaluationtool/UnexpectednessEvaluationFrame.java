@@ -56,6 +56,7 @@ public class UnexpectednessEvaluationFrame extends javax.swing.JFrame {
 
         buttonGroup1 = new javax.swing.ButtonGroup();
         jButton4 = new javax.swing.JButton();
+        rdgKernel = new javax.swing.ButtonGroup();
         jTabbedPane2 = new javax.swing.JTabbedPane();
         jPanel1 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
@@ -80,15 +81,17 @@ public class UnexpectednessEvaluationFrame extends javax.swing.JFrame {
         chkMetric3 = new javax.swing.JCheckBox();
         chkMetric4 = new javax.swing.JCheckBox();
         chkMetric5 = new javax.swing.JCheckBox();
-        jPanel6 = new javax.swing.JPanel();
-        btnLoadNewMetrics = new javax.swing.JButton();
-        jScrollPane2 = new javax.swing.JScrollPane();
-        tblNewMetrics = new javax.swing.JTable();
+        jLabel3 = new javax.swing.JLabel();
+        jLabel7 = new javax.swing.JLabel();
+        jLabel13 = new javax.swing.JLabel();
+        jLabel14 = new javax.swing.JLabel();
+        jLabel15 = new javax.swing.JLabel();
+        jLabel16 = new javax.swing.JLabel();
+        jLabel17 = new javax.swing.JLabel();
         jPanel3 = new javax.swing.JPanel();
         jPanel7 = new javax.swing.JPanel();
         jPanel9 = new javax.swing.JPanel();
         chkEnableStatisticalSummarization = new javax.swing.JCheckBox();
-        jLabel3 = new javax.swing.JLabel();
         chkMean = new javax.swing.JCheckBox();
         chkMedian = new javax.swing.JCheckBox();
         chkStandardDeviation = new javax.swing.JCheckBox();
@@ -102,7 +105,6 @@ public class UnexpectednessEvaluationFrame extends javax.swing.JFrame {
         chkUserBias = new javax.swing.JCheckBox();
         jPanel8 = new javax.swing.JPanel();
         chkSimilarityAnalysis = new javax.swing.JCheckBox();
-        jLabel4 = new javax.swing.JLabel();
         chkKendall = new javax.swing.JCheckBox();
         chkPearson = new javax.swing.JCheckBox();
         chkSpearman = new javax.swing.JCheckBox();
@@ -113,13 +115,15 @@ public class UnexpectednessEvaluationFrame extends javax.swing.JFrame {
         chkPCA = new javax.swing.JCheckBox();
         jPanel12 = new javax.swing.JPanel();
         chkKPCA = new javax.swing.JCheckBox();
-        jLabel7 = new javax.swing.JLabel();
-        jScrollPane5 = new javax.swing.JScrollPane();
-        lstKernel = new javax.swing.JList<>();
-        jPanel13 = new javax.swing.JPanel();
-        btnCombinationMethods = new javax.swing.JButton();
-        jScrollPane4 = new javax.swing.JScrollPane();
-        jTable3 = new javax.swing.JTable();
+        jPanel14 = new javax.swing.JPanel();
+        rdbRdfdot = new javax.swing.JRadioButton();
+        rdbPolydot = new javax.swing.JRadioButton();
+        rdbLaplacedot = new javax.swing.JRadioButton();
+        rdbVanilladot = new javax.swing.JRadioButton();
+        rdbTanhdot = new javax.swing.JRadioButton();
+        rdbBesseldot = new javax.swing.JRadioButton();
+        rdbAnovadot = new javax.swing.JRadioButton();
+        rdbSplinedot = new javax.swing.JRadioButton();
         btnRun = new javax.swing.JButton();
         btnHelp = new javax.swing.JButton();
         lblStatus = new javax.swing.JLabel();
@@ -127,6 +131,7 @@ public class UnexpectednessEvaluationFrame extends javax.swing.JFrame {
         jButton4.setText("jButton4");
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setTitle("UNuSUAL");
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabel1.setFont(new java.awt.Font("Ubuntu", 1, 15)); // NOI18N
@@ -197,6 +202,8 @@ public class UnexpectednessEvaluationFrame extends javax.swing.JFrame {
         lblOutput.setText("Folder Not Selected");
 
         btnOutputFolder.setText("Select Output Folder");
+        btnOutputFolder.setMaximumSize(new java.awt.Dimension(234, 29));
+        btnOutputFolder.setMinimumSize(new java.awt.Dimension(234, 29));
         btnOutputFolder.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnOutputFolderActionPerformed(evt);
@@ -219,9 +226,8 @@ public class UnexpectednessEvaluationFrame extends javax.swing.JFrame {
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                    .addComponent(jScrollPane1)
-                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel1Layout.createSequentialGroup()
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(jPanel1Layout.createSequentialGroup()
                                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -230,24 +236,21 @@ public class UnexpectednessEvaluationFrame extends javax.swing.JFrame {
                                     .addComponent(jLabel1)
                                     .addComponent(jLabel9))
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                    .addComponent(lblConsumptionHistory, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                    .addComponent(lblItemsFeaturesFile, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                    .addComponent(lblOutput, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 371, Short.MAX_VALUE)))
-                            .addComponent(jLabel2))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(btnAddRecommendation, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addGroup(jPanel1Layout.createSequentialGroup()
                                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                                    .addComponent(btnPPM, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                    .addComponent(btnOutputFolder, javax.swing.GroupLayout.DEFAULT_SIZE, 231, Short.MAX_VALUE))
-                                .addGap(0, 0, Short.MAX_VALUE))
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                                .addGap(0, 0, Short.MAX_VALUE)
-                                .addComponent(btnSelectItemsFeatures, javax.swing.GroupLayout.PREFERRED_SIZE, 234, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addComponent(btnSelectConsumptionHistory, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                                    .addComponent(lblItemsFeaturesFile, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addComponent(lblOutput, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 184, Short.MAX_VALUE)
+                                    .addComponent(lblConsumptionHistory, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                            .addComponent(jLabel2))
+                        .addGap(105, 105, 105)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(btnSelectConsumptionHistory)
+                            .addComponent(btnSelectItemsFeatures, javax.swing.GroupLayout.PREFERRED_SIZE, 234, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(btnPPM, javax.swing.GroupLayout.PREFERRED_SIZE, 234, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(btnAddRecommendation, javax.swing.GroupLayout.PREFERRED_SIZE, 234, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(btnOutputFolder, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 234, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(0, 0, Short.MAX_VALUE))
+                    .addComponent(jScrollPane1, javax.swing.GroupLayout.Alignment.TRAILING))
+                .addContainerGap())
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -264,7 +267,7 @@ public class UnexpectednessEvaluationFrame extends javax.swing.JFrame {
                     .addComponent(lblItemsFeaturesFile))
                 .addGap(4, 4, 4)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(btnOutputFolder)
+                    .addComponent(btnOutputFolder, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(lblOutput)
                     .addComponent(jLabel8))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -276,8 +279,8 @@ public class UnexpectednessEvaluationFrame extends javax.swing.JFrame {
                     .addComponent(btnAddRecommendation)
                     .addComponent(jLabel2))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 275, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap())
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 182, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(105, 105, 105))
         );
 
         jTabbedPane2.addTab("Input/Output Configuration", jPanel1);
@@ -319,6 +322,27 @@ public class UnexpectednessEvaluationFrame extends javax.swing.JFrame {
             }
         });
 
+        jLabel3.setFont(new java.awt.Font("Ubuntu", 0, 12)); // NOI18N
+        jLabel3.setText("Metric retrieved from Ge et. al. Beyond Accuracy: Evaluating recommender systems by coverage and serendipity.");
+
+        jLabel7.setFont(new java.awt.Font("Ubuntu", 0, 12)); // NOI18N
+        jLabel7.setText("Metric retrieved from Adamopoulos et. al. On unexpectedness in recommender systems: Or how to expect the");
+
+        jLabel13.setFont(new java.awt.Font("Ubuntu", 0, 12)); // NOI18N
+        jLabel13.setText("unexpected.");
+
+        jLabel14.setFont(new java.awt.Font("Ubuntu", 0, 12)); // NOI18N
+        jLabel14.setText("Metric retrieved from Zhang et. al. Auralist: Introducing serendipity into music recommendation.");
+
+        jLabel15.setFont(new java.awt.Font("Ubuntu", 0, 12)); // NOI18N
+        jLabel15.setText("Metric retrieved from Akiytama et. al. Proposal and evaluation of serendipitous recommendation method using");
+
+        jLabel16.setFont(new java.awt.Font("Ubuntu", 0, 12)); // NOI18N
+        jLabel16.setText("general unexpectedness.");
+
+        jLabel17.setFont(new java.awt.Font("Ubuntu", 0, 12)); // NOI18N
+        jLabel17.setText("Metric retrieved from Murakami et. al. Metrics for evaluating the serendipity of recommendation lists.");
+
         javax.swing.GroupLayout jPanel5Layout = new javax.swing.GroupLayout(jPanel5);
         jPanel5.setLayout(jPanel5Layout);
         jPanel5Layout.setHorizontalGroup(
@@ -326,74 +350,51 @@ public class UnexpectednessEvaluationFrame extends javax.swing.JFrame {
             .addGroup(jPanel5Layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(chkMetric1)
-                    .addComponent(chkMetric2)
-                    .addComponent(chkMetric3))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(chkMetric4)
-                    .addComponent(chkMetric5))
-                .addGap(150, 150, 150))
+                    .addGroup(jPanel5Layout.createSequentialGroup()
+                        .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                            .addComponent(jLabel7, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(jLabel16, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(jLabel13, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(chkMetric4, javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(chkMetric5, javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(chkMetric1, javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(chkMetric2, javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(chkMetric3, javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel3, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 646, Short.MAX_VALUE)
+                            .addComponent(jLabel15, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(jLabel14, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addGap(0, 0, Short.MAX_VALUE))
+                    .addComponent(jLabel17, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap())
         );
         jPanel5Layout.setVerticalGroup(
             jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel5Layout.createSequentialGroup()
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel5Layout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(chkMetric1)
-                    .addComponent(chkMetric4))
+                .addComponent(chkMetric1)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(chkMetric2)
-                    .addComponent(chkMetric5))
+                .addComponent(jLabel3)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(chkMetric2)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jLabel7)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jLabel13)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(chkMetric3)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-        );
-
-        jPanel6.setBorder(javax.swing.BorderFactory.createTitledBorder("Customized Metrics"));
-
-        btnLoadNewMetrics.setText("Load New Metrics");
-        btnLoadNewMetrics.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnLoadNewMetricsActionPerformed(evt);
-            }
-        });
-
-        tblNewMetrics.setModel(new javax.swing.table.DefaultTableModel(
-            new Object [][] {
-
-            },
-            new String [] {
-                "Metric", "File"
-            }
-        ));
-        jScrollPane2.setViewportView(tblNewMetrics);
-        if (tblNewMetrics.getColumnModel().getColumnCount() > 0) {
-            tblNewMetrics.getColumnModel().getColumn(0).setResizable(false);
-            tblNewMetrics.getColumnModel().getColumn(1).setResizable(false);
-        }
-
-        javax.swing.GroupLayout jPanel6Layout = new javax.swing.GroupLayout(jPanel6);
-        jPanel6.setLayout(jPanel6Layout);
-        jPanel6Layout.setHorizontalGroup(
-            jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel6Layout.createSequentialGroup()
-                .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel6Layout.createSequentialGroup()
-                        .addComponent(btnLoadNewMetrics)
-                        .addGap(0, 0, Short.MAX_VALUE))
-                    .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 750, Short.MAX_VALUE))
-                .addContainerGap())
-        );
-        jPanel6Layout.setVerticalGroup(
-            jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel6Layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(btnLoadNewMetrics)
+                .addGap(2, 2, 2)
+                .addComponent(jLabel14)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(chkMetric4)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 218, Short.MAX_VALUE)
-                .addContainerGap())
+                .addComponent(jLabel15)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jLabel16)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(chkMetric5)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jLabel17)
+                .addContainerGap(34, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
@@ -402,19 +403,14 @@ public class UnexpectednessEvaluationFrame extends javax.swing.JFrame {
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel2Layout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(jPanel5, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jPanel6, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addComponent(jPanel5, javax.swing.GroupLayout.PREFERRED_SIZE, 678, Short.MAX_VALUE)
+                .addContainerGap())
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel2Layout.createSequentialGroup()
-                .addGap(17, 17, 17)
-                .addComponent(jPanel5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jPanel6, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addGap(18, 18, 18))
+                .addComponent(jPanel5, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap())
         );
 
         jPanel5.getAccessibleContext().setAccessibleName("");
@@ -423,6 +419,7 @@ public class UnexpectednessEvaluationFrame extends javax.swing.JFrame {
         jTabbedPane2.addTab("Evaluation of Unexpectedness", jPanel2);
 
         jPanel7.setBorder(javax.swing.BorderFactory.createTitledBorder("Behavioural Analysis"));
+        jPanel7.setPreferredSize(new java.awt.Dimension(678, 276));
 
         jPanel9.setBorder(javax.swing.BorderFactory.createTitledBorder("Statistical Summarization"));
 
@@ -432,8 +429,6 @@ public class UnexpectednessEvaluationFrame extends javax.swing.JFrame {
                 chkEnableStatisticalSummarizationActionPerformed(evt);
             }
         });
-
-        jLabel3.setText("Calculus");
 
         chkMean.setText("Mean");
         chkMean.setEnabled(false);
@@ -478,17 +473,14 @@ public class UnexpectednessEvaluationFrame extends javax.swing.JFrame {
                         .addComponent(chkEnableStatisticalSummarization))
                     .addGroup(jPanel9Layout.createSequentialGroup()
                         .addGap(42, 42, 42)
-                        .addGroup(jPanel9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel3)
-                            .addGroup(jPanel9Layout.createSequentialGroup()
-                                .addComponent(chkMean)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(chkMedian)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(chkStandardDeviation)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(chkRank)))))
-                .addContainerGap(166, Short.MAX_VALUE))
+                        .addComponent(chkMean)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(chkMedian)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(chkStandardDeviation)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(chkRank)))
+                .addContainerGap(67, Short.MAX_VALUE))
         );
         jPanel9Layout.setVerticalGroup(
             jPanel9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -496,14 +488,12 @@ public class UnexpectednessEvaluationFrame extends javax.swing.JFrame {
                 .addContainerGap()
                 .addComponent(chkEnableStatisticalSummarization)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jLabel3)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(chkMean)
                     .addComponent(chkMedian)
                     .addComponent(chkStandardDeviation)
                     .addComponent(chkRank))
-                .addContainerGap(22, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         jPanel10.setBorder(javax.swing.BorderFactory.createTitledBorder("Sensitivity Analysis"));
@@ -574,18 +564,18 @@ public class UnexpectednessEvaluationFrame extends javax.swing.JFrame {
                                 .addComponent(txtBinSize, javax.swing.GroupLayout.PREFERRED_SIZE, 87, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addGroup(jPanel10Layout.createSequentialGroup()
                                 .addComponent(chkItemPopularity)
-                                .addGap(26, 26, 26)
+                                .addGap(30, 30, 30)
                                 .addComponent(chkHistorySize)
-                                .addGap(32, 32, 32)
+                                .addGap(26, 26, 26)
                                 .addComponent(chkUserBias)))))
-                .addContainerGap(303, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel10Layout.setVerticalGroup(
             jPanel10Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel10Layout.createSequentialGroup()
-                .addContainerGap()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(chkEnableStatisticalAnalysis)
-                .addGap(12, 12, 12)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel10Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel5)
                     .addComponent(txtBinSize, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -593,8 +583,7 @@ public class UnexpectednessEvaluationFrame extends javax.swing.JFrame {
                 .addGroup(jPanel10Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(chkItemPopularity)
                     .addComponent(chkHistorySize)
-                    .addComponent(chkUserBias))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(chkUserBias)))
         );
 
         javax.swing.GroupLayout jPanel7Layout = new javax.swing.GroupLayout(jPanel7);
@@ -603,10 +592,10 @@ public class UnexpectednessEvaluationFrame extends javax.swing.JFrame {
             jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel7Layout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jPanel9, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jPanel10, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(jPanel10, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap())
         );
         jPanel7Layout.setVerticalGroup(
             jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -619,6 +608,7 @@ public class UnexpectednessEvaluationFrame extends javax.swing.JFrame {
         );
 
         jPanel8.setBorder(javax.swing.BorderFactory.createTitledBorder("Similarity Analysis"));
+        jPanel8.setPreferredSize(new java.awt.Dimension(678, 105));
 
         chkSimilarityAnalysis.setText("Enable Similarity Analysis");
         chkSimilarityAnalysis.addActionListener(new java.awt.event.ActionListener() {
@@ -626,8 +616,6 @@ public class UnexpectednessEvaluationFrame extends javax.swing.JFrame {
                 chkSimilarityAnalysisActionPerformed(evt);
             }
         });
-
-        jLabel4.setText("Correlation Metrics");
 
         chkKendall.setText("Kendall");
         chkKendall.setEnabled(false);
@@ -658,35 +646,28 @@ public class UnexpectednessEvaluationFrame extends javax.swing.JFrame {
         jPanel8Layout.setHorizontalGroup(
             jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel8Layout.createSequentialGroup()
+                .addContainerGap()
                 .addGroup(jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel8Layout.createSequentialGroup()
-                        .addContainerGap()
-                        .addComponent(chkSimilarityAnalysis))
-                    .addGroup(jPanel8Layout.createSequentialGroup()
-                        .addGap(61, 61, 61)
-                        .addGroup(jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel4)
-                            .addGroup(jPanel8Layout.createSequentialGroup()
-                                .addComponent(chkKendall, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(chkPearson)
-                                .addGap(18, 18, 18)
-                                .addComponent(chkSpearman)))))
-                .addContainerGap(393, Short.MAX_VALUE))
+                        .addGap(12, 12, 12)
+                        .addComponent(chkKendall, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(chkPearson)
+                        .addGap(18, 18, 18)
+                        .addComponent(chkSpearman))
+                    .addComponent(chkSimilarityAnalysis))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel8Layout.setVerticalGroup(
             jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel8Layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(chkSimilarityAnalysis)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jLabel4)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(chkKendall)
                     .addComponent(chkPearson)
                     .addComponent(chkSpearman))
-                .addGap(6, 6, 6))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
@@ -697,16 +678,16 @@ public class UnexpectednessEvaluationFrame extends javax.swing.JFrame {
                 .addContainerGap()
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(jPanel8, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jPanel7, javax.swing.GroupLayout.PREFERRED_SIZE, 775, Short.MAX_VALUE))
-                .addContainerGap(15, Short.MAX_VALUE))
+                    .addComponent(jPanel7, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel3Layout.setVerticalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel3Layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jPanel7, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jPanel8, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(jPanel7, javax.swing.GroupLayout.PREFERRED_SIZE, 273, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jPanel8, javax.swing.GroupLayout.PREFERRED_SIZE, 83, Short.MAX_VALUE)
                 .addContainerGap())
         );
 
@@ -755,7 +736,7 @@ public class UnexpectednessEvaluationFrame extends javax.swing.JFrame {
                 .addComponent(chkSVD)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(chkPCA)
-                .addContainerGap(18, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         jPanel12.setBorder(javax.swing.BorderFactory.createTitledBorder("Non-Linear Combination"));
@@ -768,20 +749,126 @@ public class UnexpectednessEvaluationFrame extends javax.swing.JFrame {
             }
         });
 
-        jLabel7.setText("Kernel Function");
+        jPanel14.setBorder(javax.swing.BorderFactory.createTitledBorder("Kernel Function"));
 
-        lstKernel.setModel(new javax.swing.AbstractListModel<String>() {
-            String[] strings = { "Rbfdot", "Polydot", "Laplacedot", "Vanilladot", "tanhdot", "besseldot", "anovadot", "splinedot" };
-            public int getSize() { return strings.length; }
-            public String getElementAt(int i) { return strings[i]; }
-        });
-        lstKernel.setEnabled(false);
-        lstKernel.addListSelectionListener(new javax.swing.event.ListSelectionListener() {
-            public void valueChanged(javax.swing.event.ListSelectionEvent evt) {
-                lstKernelValueChanged(evt);
+        rdgKernel.add(rdbRdfdot);
+        rdbRdfdot.setSelected(true);
+        rdbRdfdot.setText("Rbfdot");
+        rdbRdfdot.setEnabled(false);
+        rdbRdfdot.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                rdbRdfdotActionPerformed(evt);
             }
         });
-        jScrollPane5.setViewportView(lstKernel);
+
+        rdgKernel.add(rdbPolydot);
+        rdbPolydot.setText("Polydot");
+        rdbPolydot.setEnabled(false);
+        rdbPolydot.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                rdbPolydotActionPerformed(evt);
+            }
+        });
+
+        rdgKernel.add(rdbLaplacedot);
+        rdbLaplacedot.setText("Laplacedot");
+        rdbLaplacedot.setEnabled(false);
+        rdbLaplacedot.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                rdbLaplacedotActionPerformed(evt);
+            }
+        });
+
+        rdgKernel.add(rdbVanilladot);
+        rdbVanilladot.setText("Vanilladot");
+        rdbVanilladot.setEnabled(false);
+        rdbVanilladot.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                rdbVanilladotActionPerformed(evt);
+            }
+        });
+
+        rdgKernel.add(rdbTanhdot);
+        rdbTanhdot.setText("Tanhdot");
+        rdbTanhdot.setEnabled(false);
+        rdbTanhdot.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                rdbTanhdotActionPerformed(evt);
+            }
+        });
+
+        rdgKernel.add(rdbBesseldot);
+        rdbBesseldot.setText("Besseldot");
+        rdbBesseldot.setEnabled(false);
+        rdbBesseldot.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                rdbBesseldotActionPerformed(evt);
+            }
+        });
+
+        rdgKernel.add(rdbAnovadot);
+        rdbAnovadot.setText("Anovadot");
+        rdbAnovadot.setEnabled(false);
+        rdbAnovadot.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                rdbAnovadotActionPerformed(evt);
+            }
+        });
+
+        rdgKernel.add(rdbSplinedot);
+        rdbSplinedot.setText("Splinedot");
+        rdbSplinedot.setEnabled(false);
+        rdbSplinedot.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                rdbSplinedotActionPerformed(evt);
+            }
+        });
+
+        javax.swing.GroupLayout jPanel14Layout = new javax.swing.GroupLayout(jPanel14);
+        jPanel14.setLayout(jPanel14Layout);
+        jPanel14Layout.setHorizontalGroup(
+            jPanel14Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel14Layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(jPanel14Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel14Layout.createSequentialGroup()
+                        .addComponent(rdbVanilladot)
+                        .addGap(159, 159, 159)
+                        .addComponent(rdbSplinedot))
+                    .addGroup(jPanel14Layout.createSequentialGroup()
+                        .addComponent(rdbRdfdot)
+                        .addGap(181, 181, 181)
+                        .addComponent(rdbTanhdot))
+                    .addGroup(jPanel14Layout.createSequentialGroup()
+                        .addComponent(rdbPolydot)
+                        .addGap(175, 175, 175)
+                        .addComponent(rdbBesseldot))
+                    .addGroup(jPanel14Layout.createSequentialGroup()
+                        .addComponent(rdbLaplacedot)
+                        .addGap(150, 150, 150)
+                        .addComponent(rdbAnovadot)))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
+        jPanel14Layout.setVerticalGroup(
+            jPanel14Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel14Layout.createSequentialGroup()
+                .addGroup(jPanel14Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(rdbRdfdot)
+                    .addComponent(rdbTanhdot))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(jPanel14Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(rdbPolydot)
+                    .addComponent(rdbBesseldot))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(jPanel14Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(rdbLaplacedot)
+                    .addComponent(rdbAnovadot))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(jPanel14Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(rdbVanilladot)
+                    .addComponent(rdbSplinedot))
+                .addGap(0, 12, Short.MAX_VALUE))
+        );
 
         javax.swing.GroupLayout jPanel12Layout = new javax.swing.GroupLayout(jPanel12);
         jPanel12.setLayout(jPanel12Layout);
@@ -790,73 +877,19 @@ public class UnexpectednessEvaluationFrame extends javax.swing.JFrame {
             .addGroup(jPanel12Layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(jPanel12Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(chkKPCA)
+                    .addComponent(jPanel14, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addGroup(jPanel12Layout.createSequentialGroup()
-                        .addComponent(jLabel7)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jScrollPane5, javax.swing.GroupLayout.PREFERRED_SIZE, 279, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addComponent(chkKPCA)
+                        .addGap(0, 0, Short.MAX_VALUE)))
+                .addContainerGap())
         );
         jPanel12Layout.setVerticalGroup(
             jPanel12Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel12Layout.createSequentialGroup()
-                .addGap(22, 22, 22)
                 .addComponent(chkKPCA)
-                .addGroup(jPanel12Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel12Layout.createSequentialGroup()
-                        .addGap(15, 15, 15)
-                        .addComponent(jLabel7))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel12Layout.createSequentialGroup()
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jScrollPane5, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-        );
-
-        jPanel13.setBorder(javax.swing.BorderFactory.createTitledBorder("Customized Combination"));
-
-        btnCombinationMethods.setText("Load New Combination Methods");
-        btnCombinationMethods.setEnabled(false);
-
-        jTable3.setModel(new javax.swing.table.DefaultTableModel(
-            new Object [][] {
-
-            },
-            new String [] {
-                "Combination", "File"
-            }
-        ) {
-            boolean[] canEdit = new boolean [] {
-                false, false
-            };
-
-            public boolean isCellEditable(int rowIndex, int columnIndex) {
-                return canEdit [columnIndex];
-            }
-        });
-        jScrollPane4.setViewportView(jTable3);
-        if (jTable3.getColumnModel().getColumnCount() > 0) {
-            jTable3.getColumnModel().getColumn(0).setResizable(false);
-        }
-
-        javax.swing.GroupLayout jPanel13Layout = new javax.swing.GroupLayout(jPanel13);
-        jPanel13.setLayout(jPanel13Layout);
-        jPanel13Layout.setHorizontalGroup(
-            jPanel13Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel13Layout.createSequentialGroup()
-                .addComponent(btnCombinationMethods)
-                .addGap(0, 0, Short.MAX_VALUE))
-            .addGroup(jPanel13Layout.createSequentialGroup()
-                .addComponent(jScrollPane4, javax.swing.GroupLayout.DEFAULT_SIZE, 743, Short.MAX_VALUE)
-                .addContainerGap())
-        );
-        jPanel13Layout.setVerticalGroup(
-            jPanel13Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel13Layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(btnCombinationMethods)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jScrollPane4, javax.swing.GroupLayout.DEFAULT_SIZE, 107, Short.MAX_VALUE)
-                .addContainerGap())
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jPanel14, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 11, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout jPanel4Layout = new javax.swing.GroupLayout(jPanel4);
@@ -865,30 +898,29 @@ public class UnexpectednessEvaluationFrame extends javax.swing.JFrame {
             jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel4Layout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(chkEnableCombinationAnalysis)
+                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel4Layout.createSequentialGroup()
+                        .addComponent(chkEnableCombinationAnalysis)
+                        .addGap(0, 456, Short.MAX_VALUE))
                     .addComponent(jPanel11, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jPanel12, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jPanel13, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addContainerGap(23, Short.MAX_VALUE))
+                    .addComponent(jPanel12, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap())
         );
         jPanel4Layout.setVerticalGroup(
             jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel4Layout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(chkEnableCombinationAnalysis)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jPanel11, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jPanel12, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jPanel13, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addComponent(jPanel12, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap())
         );
 
         jTabbedPane2.addTab("Combination of Metrics", jPanel4);
 
-        getContentPane().add(jTabbedPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 30, 810, 509));
+        getContentPane().add(jTabbedPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 20, 710, 450));
 
         btnRun.setText("Run");
         btnRun.addActionListener(new java.awt.event.ActionListener() {
@@ -896,11 +928,11 @@ public class UnexpectednessEvaluationFrame extends javax.swing.JFrame {
                 btnRunActionPerformed(evt);
             }
         });
-        getContentPane().add(btnRun, new org.netbeans.lib.awtextra.AbsoluteConstraints(740, 550, 70, -1));
+        getContentPane().add(btnRun, new org.netbeans.lib.awtextra.AbsoluteConstraints(640, 480, 70, -1));
 
         btnHelp.setText("Help");
-        getContentPane().add(btnHelp, new org.netbeans.lib.awtextra.AbsoluteConstraints(660, 550, 70, -1));
-        getContentPane().add(lblStatus, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 550, 630, 30));
+        getContentPane().add(btnHelp, new org.netbeans.lib.awtextra.AbsoluteConstraints(560, 480, 70, -1));
+        getContentPane().add(lblStatus, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 480, 530, 30));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -926,12 +958,6 @@ public class UnexpectednessEvaluationFrame extends javax.swing.JFrame {
             parameters.unsetMetric(1);
         }
     }//GEN-LAST:event_chkMetric2ActionPerformed
-
-    private void btnLoadNewMetricsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLoadNewMetricsActionPerformed
-        //MetricSelection metricSelection = new MetricSelection();
-        //metricSelection.setVisible(true);
-        //this.setEnabled(false);
-    }//GEN-LAST:event_btnLoadNewMetricsActionPerformed
     
     /*
     Button to Select the Consumption History Action Performed. 
@@ -1090,138 +1116,6 @@ public class UnexpectednessEvaluationFrame extends javax.swing.JFrame {
     }//GEN-LAST:event_chkMetric5ActionPerformed
 
     /*
-    Set the checkbox Statistical Summarization.
-    */
-    private void chkEnableStatisticalSummarizationActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_chkEnableStatisticalSummarizationActionPerformed
-        if (chkEnableStatisticalSummarization.isSelected()){
-            chkMean.setEnabled(true);
-            chkMedian.setEnabled(true);
-            chkStandardDeviation.setEnabled(true);
-            chkRank.setEnabled(true);
-            parameters.setStatisticalSummarization(true);
-        } else {
-            chkMean.setEnabled(false);
-            chkMedian.setEnabled(false);
-            chkStandardDeviation.setEnabled(false);
-            chkRank.setEnabled(false);
-            parameters.setStatisticalSummarization(false);
-        }
-    }//GEN-LAST:event_chkEnableStatisticalSummarizationActionPerformed
-
-    /*
-    Set the checkbox Statistical Analysis.
-    */
-    private void chkEnableStatisticalAnalysisActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_chkEnableStatisticalAnalysisActionPerformed
-        if (chkEnableStatisticalAnalysis.isSelected()){
-            chkHistorySize.setEnabled(true);
-            chkItemPopularity.setEnabled(true);
-            chkUserBias.setEnabled(true);
-            txtBinSize.setEnabled(true);
-            parameters.setStatisticalAnalysis(true);
-        } else {
-            chkHistorySize.setEnabled(false);
-            chkItemPopularity.setEnabled(false);
-            chkUserBias.setEnabled(false);
-            txtBinSize.setEnabled(false);
-            parameters.setStatisticalAnalysis(false);
-        }
-    }//GEN-LAST:event_chkEnableStatisticalAnalysisActionPerformed
-
-    /*
-    Set the checkbox of similarity analysis.
-    */
-    private void chkSimilarityAnalysisActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_chkSimilarityAnalysisActionPerformed
-        if (chkSimilarityAnalysis.isSelected()){
-            chkKendall.setEnabled(true);
-            chkPearson.setEnabled(true);
-            chkSpearman.setEnabled(true);
-            parameters.setSimilarityAnalysis(true);
-        } else {
-            chkKendall.setEnabled(false);
-            chkPearson.setEnabled(false);
-            chkSpearman.setEnabled(false);
-            parameters.setSimilarityAnalysis(false);
-        }
-    }//GEN-LAST:event_chkSimilarityAnalysisActionPerformed
-
-    /*
-        Set the checkbox Mean, normal average.
-    */
-    private void chkMeanActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_chkMeanActionPerformed
-        if (chkMean.isSelected()){
-            parameters.setMean(true);
-        } else {
-            parameters.setMean(false);
-        }
-    }//GEN-LAST:event_chkMeanActionPerformed
-
-    /*
-        Set the checkbox Median.
-    */
-    private void chkMedianActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_chkMedianActionPerformed
-        if (chkMedian.isSelected()){
-            parameters.setMedian(true);
-        } else {
-            parameters.setMedian(false);
-        }
-    }//GEN-LAST:event_chkMedianActionPerformed
-
-    /*
-    Set the checkbox Stardard Deviation.
-    */
-    private void chkStandardDeviationActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_chkStandardDeviationActionPerformed
-        if (chkStandardDeviation.isSelected()){
-            parameters.setSd(true);
-        } else {
-            parameters.setSd(false);
-        }
-    }//GEN-LAST:event_chkStandardDeviationActionPerformed
-
-    /*
-    Set the checkbox Rank Curve .
-    */
-    private void chkRankActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_chkRankActionPerformed
-        if (chkRank.isSelected()){
-            parameters.setRankcurve(true);
-        } else {
-            parameters.setRankcurve(false);
-        }
-    }//GEN-LAST:event_chkRankActionPerformed
-
-    /*
-    Set the checkbox Item popularity.
-    */
-    private void chkItemPopularityActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_chkItemPopularityActionPerformed
-        if (chkItemPopularity.isSelected()){
-            parameters.setItemPopularity(true);
-        } else {
-            parameters.setItemPopularity(false);
-        }
-    }//GEN-LAST:event_chkItemPopularityActionPerformed
-
-    /*
-    Set the checkbox History Size.
-    */
-    private void chkHistorySizeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_chkHistorySizeActionPerformed
-        if (chkHistorySize.isSelected()){
-            parameters.setHistorySize(true);
-        } else {
-            parameters.setHistorySize(false);
-        }
-    }//GEN-LAST:event_chkHistorySizeActionPerformed
-
-    /*
-    Set the checkbox User Bias.
-    */
-    private void chkUserBiasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_chkUserBiasActionPerformed
-        if (chkUserBias.isSelected()){
-            parameters.setUserBias(true);
-        } else {
-            parameters.setUserBias(false);
-        }
-    }//GEN-LAST:event_chkUserBiasActionPerformed
-
-    /*
     Set the combination analysis
     */
     private void chkEnableCombinationAnalysisActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_chkEnableCombinationAnalysisActionPerformed
@@ -1230,15 +1124,13 @@ public class UnexpectednessEvaluationFrame extends javax.swing.JFrame {
             chkSVD.setEnabled(true);
             chkPCA.setEnabled(true);
             chkKPCA.setEnabled(true);
-            lstKernel.setEnabled(true);
-            btnCombinationMethods.setEnabled(true);
+            
         } else {
             parameters.setCombinationAnalysis(false);
             chkSVD.setEnabled(false);
             chkPCA.setEnabled(false);
             chkKPCA.setEnabled(false);
-            lstKernel.setEnabled(false);
-            btnCombinationMethods.setEnabled(false);
+            
         }
     }//GEN-LAST:event_chkEnableCombinationAnalysisActionPerformed
 
@@ -1270,18 +1162,26 @@ public class UnexpectednessEvaluationFrame extends javax.swing.JFrame {
     private void chkKPCAActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_chkKPCAActionPerformed
         if (chkKPCA.isSelected()){
             parameters.setKpca(true);
+            rdbRdfdot.setEnabled(true);
+            rdbPolydot.setEnabled(true);
+            rdbLaplacedot.setEnabled(true);
+            rdbVanilladot.setEnabled(true);
+            rdbTanhdot.setEnabled(true);
+            rdbBesseldot.setEnabled(true);
+            rdbAnovadot.setEnabled(true);
+            rdbSplinedot.setEnabled(true); 
         } else {
             parameters.setKpca(false);
+            rdbRdfdot.setEnabled(false);
+            rdbPolydot.setEnabled(false);
+            rdbLaplacedot.setEnabled(false);
+            rdbVanilladot.setEnabled(false);
+            rdbTanhdot.setEnabled(false);
+            rdbBesseldot.setEnabled(false);
+            rdbAnovadot.setEnabled(false);
+            rdbSplinedot.setEnabled(false); 
         }
     }//GEN-LAST:event_chkKPCAActionPerformed
-
-    /*
-    When selecting a kernel
-    */
-    private void lstKernelValueChanged(javax.swing.event.ListSelectionEvent evt) {//GEN-FIRST:event_lstKernelValueChanged
-        String kernel = lstKernel.getSelectedValue();
-        parameters.setKpcaKernelFunction(kernel);
-    }//GEN-LAST:event_lstKernelValueChanged
 
     /*
     Button to run the experimentation
@@ -1448,19 +1348,6 @@ public class UnexpectednessEvaluationFrame extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_btnRunActionPerformed
 
-    private void txtBinSizeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtBinSizeActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_txtBinSizeActionPerformed
-
-    private void txtBinSizeKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtBinSizeKeyPressed
-        try{
-            parameters.setBinSize(Float.parseFloat(txtBinSize.getText()));
-        } catch (Exception e){
-            parameters.setBinSize(0);
-            return;
-        }
-    }//GEN-LAST:event_txtBinSizeKeyPressed
-
     private void btnOutputFolderActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnOutputFolderActionPerformed
         //Create a file chooser
         final JFileChooser fc = new JFileChooser();
@@ -1503,39 +1390,6 @@ public class UnexpectednessEvaluationFrame extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_tblRecommendationListsMouseClicked
 
-    private void chkKendallActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_chkKendallActionPerformed
-        if (chkKendall.isSelected()){
-            parameters.setKendall(true);
-        } else {
-            parameters.setKendall(false);
-        }
-    }//GEN-LAST:event_chkKendallActionPerformed
-
-    private void chkPearsonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_chkPearsonActionPerformed
-        if (chkPearson.isSelected()){
-            parameters.setPearson(true);
-        } else {
-            parameters.setPearson(false);
-        }
-    }//GEN-LAST:event_chkPearsonActionPerformed
-
-    private void chkSpearmanActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_chkSpearmanActionPerformed
-        if (chkSpearman.isSelected()){
-            parameters.setSpearman(true);
-        } else {
-            parameters.setSpearman(false);
-        }
-    }//GEN-LAST:event_chkSpearmanActionPerformed
-
-    private void txtBinSizeKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtBinSizeKeyReleased
-        try{
-            parameters.setBinSize(Float.parseFloat(txtBinSize.getText()));
-        } catch (Exception e){
-            parameters.setBinSize(0);
-            return;
-        }
-    }//GEN-LAST:event_txtBinSizeKeyReleased
-
     private void tblRecommendationListsKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_tblRecommendationListsKeyReleased
         if (evt.getKeyCode()==KeyEvent.VK_ENTER){
             System.out.println("Cheguei");
@@ -1548,6 +1402,216 @@ public class UnexpectednessEvaluationFrame extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_tblRecommendationListsKeyReleased
 
+    private void chkSpearmanActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_chkSpearmanActionPerformed
+        if (chkSpearman.isSelected()){
+            parameters.setSpearman(true);
+        } else {
+            parameters.setSpearman(false);
+        }
+    }//GEN-LAST:event_chkSpearmanActionPerformed
+
+    private void chkPearsonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_chkPearsonActionPerformed
+        if (chkPearson.isSelected()){
+            parameters.setPearson(true);
+        } else {
+            parameters.setPearson(false);
+        }
+    }//GEN-LAST:event_chkPearsonActionPerformed
+
+    private void chkKendallActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_chkKendallActionPerformed
+        if (chkKendall.isSelected()){
+            parameters.setKendall(true);
+        } else {
+            parameters.setKendall(false);
+        }
+    }//GEN-LAST:event_chkKendallActionPerformed
+
+    /*
+    Set the checkbox of similarity analysis.
+    */
+    private void chkSimilarityAnalysisActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_chkSimilarityAnalysisActionPerformed
+        if (chkSimilarityAnalysis.isSelected()){
+            chkKendall.setEnabled(true);
+            chkPearson.setEnabled(true);
+            chkSpearman.setEnabled(true);
+            parameters.setSimilarityAnalysis(true);
+        } else {
+            chkKendall.setEnabled(false);
+            chkPearson.setEnabled(false);
+            chkSpearman.setEnabled(false);
+            parameters.setSimilarityAnalysis(false);
+        }
+    }//GEN-LAST:event_chkSimilarityAnalysisActionPerformed
+
+    /*
+    Set the checkbox User Bias.
+    */
+    private void chkUserBiasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_chkUserBiasActionPerformed
+        if (chkUserBias.isSelected()){
+            parameters.setUserBias(true);
+        } else {
+            parameters.setUserBias(false);
+        }
+    }//GEN-LAST:event_chkUserBiasActionPerformed
+
+    /*
+    Set the checkbox History Size.
+    */
+    private void chkHistorySizeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_chkHistorySizeActionPerformed
+        if (chkHistorySize.isSelected()){
+            parameters.setHistorySize(true);
+        } else {
+            parameters.setHistorySize(false);
+        }
+    }//GEN-LAST:event_chkHistorySizeActionPerformed
+
+    /*
+    Set the checkbox Item popularity.
+    */
+    private void chkItemPopularityActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_chkItemPopularityActionPerformed
+        if (chkItemPopularity.isSelected()){
+            parameters.setItemPopularity(true);
+        } else {
+            parameters.setItemPopularity(false);
+        }
+    }//GEN-LAST:event_chkItemPopularityActionPerformed
+
+    private void txtBinSizeKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtBinSizeKeyReleased
+        try{
+            parameters.setBinSize(Float.parseFloat(txtBinSize.getText()));
+        } catch (Exception e){
+            parameters.setBinSize(0);
+            return;
+        }
+    }//GEN-LAST:event_txtBinSizeKeyReleased
+
+    private void txtBinSizeKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtBinSizeKeyPressed
+        try{
+            parameters.setBinSize(Float.parseFloat(txtBinSize.getText()));
+        } catch (Exception e){
+            parameters.setBinSize(0);
+            return;
+        }
+    }//GEN-LAST:event_txtBinSizeKeyPressed
+
+    private void txtBinSizeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtBinSizeActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtBinSizeActionPerformed
+
+    /*
+    Set the checkbox Statistical Analysis.
+    */
+    private void chkEnableStatisticalAnalysisActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_chkEnableStatisticalAnalysisActionPerformed
+        if (chkEnableStatisticalAnalysis.isSelected()){
+            chkHistorySize.setEnabled(true);
+            chkItemPopularity.setEnabled(true);
+            chkUserBias.setEnabled(true);
+            txtBinSize.setEnabled(true);
+            parameters.setStatisticalAnalysis(true);
+        } else {
+            chkHistorySize.setEnabled(false);
+            chkItemPopularity.setEnabled(false);
+            chkUserBias.setEnabled(false);
+            txtBinSize.setEnabled(false);
+            parameters.setStatisticalAnalysis(false);
+        }
+    }//GEN-LAST:event_chkEnableStatisticalAnalysisActionPerformed
+
+    /*
+    Set the checkbox Rank Curve .
+    */
+    private void chkRankActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_chkRankActionPerformed
+        if (chkRank.isSelected()){
+            parameters.setRankcurve(true);
+        } else {
+            parameters.setRankcurve(false);
+        }
+    }//GEN-LAST:event_chkRankActionPerformed
+
+    /*
+    Set the checkbox Stardard Deviation.
+    */
+    private void chkStandardDeviationActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_chkStandardDeviationActionPerformed
+        if (chkStandardDeviation.isSelected()){
+            parameters.setSd(true);
+        } else {
+            parameters.setSd(false);
+        }
+    }//GEN-LAST:event_chkStandardDeviationActionPerformed
+
+    /*
+        Set the checkbox Median.
+    */
+    private void chkMedianActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_chkMedianActionPerformed
+        if (chkMedian.isSelected()){
+            parameters.setMedian(true);
+        } else {
+            parameters.setMedian(false);
+        }
+    }//GEN-LAST:event_chkMedianActionPerformed
+
+    /*
+        Set the checkbox Mean, normal average.
+    */
+    private void chkMeanActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_chkMeanActionPerformed
+        if (chkMean.isSelected()){
+            parameters.setMean(true);
+        } else {
+            parameters.setMean(false);
+        }
+    }//GEN-LAST:event_chkMeanActionPerformed
+
+    /*
+    Set the checkbox Statistical Summarization.
+    */
+    private void chkEnableStatisticalSummarizationActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_chkEnableStatisticalSummarizationActionPerformed
+        if (chkEnableStatisticalSummarization.isSelected()){
+            chkMean.setEnabled(true);
+            chkMedian.setEnabled(true);
+            chkStandardDeviation.setEnabled(true);
+            chkRank.setEnabled(true);
+            parameters.setStatisticalSummarization(true);
+        } else {
+            chkMean.setEnabled(false);
+            chkMedian.setEnabled(false);
+            chkStandardDeviation.setEnabled(false);
+            chkRank.setEnabled(false);
+            parameters.setStatisticalSummarization(false);
+        }
+    }//GEN-LAST:event_chkEnableStatisticalSummarizationActionPerformed
+
+    private void rdbRdfdotActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rdbRdfdotActionPerformed
+        parameters.setKpcaKernelFunction("rbfdot");
+    }//GEN-LAST:event_rdbRdfdotActionPerformed
+
+    private void rdbPolydotActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rdbPolydotActionPerformed
+        parameters.setKpcaKernelFunction("polydot");
+    }//GEN-LAST:event_rdbPolydotActionPerformed
+
+    private void rdbLaplacedotActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rdbLaplacedotActionPerformed
+        parameters.setKpcaKernelFunction("laplacedot");
+    }//GEN-LAST:event_rdbLaplacedotActionPerformed
+
+    private void rdbVanilladotActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rdbVanilladotActionPerformed
+        parameters.setKpcaKernelFunction("vanilladot");
+    }//GEN-LAST:event_rdbVanilladotActionPerformed
+
+    private void rdbTanhdotActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rdbTanhdotActionPerformed
+        parameters.setKpcaKernelFunction("tanhdot");
+    }//GEN-LAST:event_rdbTanhdotActionPerformed
+
+    private void rdbBesseldotActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rdbBesseldotActionPerformed
+        parameters.setKpcaKernelFunction("besseldot");
+    }//GEN-LAST:event_rdbBesseldotActionPerformed
+
+    private void rdbAnovadotActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rdbAnovadotActionPerformed
+        parameters.setKpcaKernelFunction("annovadot");
+    }//GEN-LAST:event_rdbAnovadotActionPerformed
+
+    private void rdbSplinedotActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rdbSplinedotActionPerformed
+        parameters.setKpcaKernelFunction("splinedot");
+    }//GEN-LAST:event_rdbSplinedotActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -1559,6 +1623,7 @@ public class UnexpectednessEvaluationFrame extends javax.swing.JFrame {
          */
         try {
             for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
+                System.out.println(info.getName());
                 if ("Nimbus".equals(info.getName())) {
                     javax.swing.UIManager.setLookAndFeel(info.getClassName());
                     break;
@@ -1587,9 +1652,7 @@ public class UnexpectednessEvaluationFrame extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnAddRecommendation;
-    private javax.swing.JButton btnCombinationMethods;
     private javax.swing.JButton btnHelp;
-    private javax.swing.JButton btnLoadNewMetrics;
     private javax.swing.JButton btnOutputFolder;
     private javax.swing.JButton btnPPM;
     private javax.swing.JButton btnRun;
@@ -1620,9 +1683,13 @@ public class UnexpectednessEvaluationFrame extends javax.swing.JFrame {
     private javax.swing.JCheckBox chkUserBias;
     private javax.swing.JButton jButton4;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel13;
+    private javax.swing.JLabel jLabel14;
+    private javax.swing.JLabel jLabel15;
+    private javax.swing.JLabel jLabel16;
+    private javax.swing.JLabel jLabel17;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
-    private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
@@ -1632,27 +1699,29 @@ public class UnexpectednessEvaluationFrame extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel10;
     private javax.swing.JPanel jPanel11;
     private javax.swing.JPanel jPanel12;
-    private javax.swing.JPanel jPanel13;
+    private javax.swing.JPanel jPanel14;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
     private javax.swing.JPanel jPanel4;
     private javax.swing.JPanel jPanel5;
-    private javax.swing.JPanel jPanel6;
     private javax.swing.JPanel jPanel7;
     private javax.swing.JPanel jPanel8;
     private javax.swing.JPanel jPanel9;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JScrollPane jScrollPane2;
-    private javax.swing.JScrollPane jScrollPane4;
-    private javax.swing.JScrollPane jScrollPane5;
     private javax.swing.JTabbedPane jTabbedPane2;
-    private javax.swing.JTable jTable3;
     private javax.swing.JLabel lblConsumptionHistory;
     private javax.swing.JLabel lblItemsFeaturesFile;
     private javax.swing.JLabel lblOutput;
     private javax.swing.JLabel lblStatus;
-    private javax.swing.JList<String> lstKernel;
-    private javax.swing.JTable tblNewMetrics;
+    private javax.swing.JRadioButton rdbAnovadot;
+    private javax.swing.JRadioButton rdbBesseldot;
+    private javax.swing.JRadioButton rdbLaplacedot;
+    private javax.swing.JRadioButton rdbPolydot;
+    private javax.swing.JRadioButton rdbRdfdot;
+    private javax.swing.JRadioButton rdbSplinedot;
+    private javax.swing.JRadioButton rdbTanhdot;
+    private javax.swing.JRadioButton rdbVanilladot;
+    private javax.swing.ButtonGroup rdgKernel;
     private javax.swing.JTable tblRecommendationLists;
     private javax.swing.JTextField txtBinSize;
     // End of variables declaration//GEN-END:variables
