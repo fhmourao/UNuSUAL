@@ -928,9 +928,9 @@ public class UnexpectednessEvaluationFrame extends javax.swing.JFrame {
     }//GEN-LAST:event_chkMetric2ActionPerformed
 
     private void btnLoadNewMetricsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLoadNewMetricsActionPerformed
-        MetricSelection metricSelection = new MetricSelection();
-        metricSelection.setVisible(true);
-        this.setEnabled(false);
+        //MetricSelection metricSelection = new MetricSelection();
+        //metricSelection.setVisible(true);
+        //this.setEnabled(false);
     }//GEN-LAST:event_btnLoadNewMetricsActionPerformed
     
     /*
