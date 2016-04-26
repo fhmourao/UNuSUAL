@@ -5,6 +5,7 @@
  */
 package unexpectednessevaluationtool;
 
+import java.awt.Desktop;
 import java.awt.event.KeyEvent;
 import java.io.BufferedReader;
 import java.io.File;
@@ -931,6 +932,11 @@ public class UnexpectednessEvaluationFrame extends javax.swing.JFrame {
         getContentPane().add(btnRun, new org.netbeans.lib.awtextra.AbsoluteConstraints(640, 480, 70, -1));
 
         btnHelp.setText("Help");
+        btnHelp.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnHelpActionPerformed(evt);
+            }
+        });
         getContentPane().add(btnHelp, new org.netbeans.lib.awtextra.AbsoluteConstraints(560, 480, 70, -1));
         getContentPane().add(lblStatus, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 480, 530, 30));
 
@@ -1346,6 +1352,17 @@ public class UnexpectednessEvaluationFrame extends javax.swing.JFrame {
             }
             
         }
+        
+        try {
+            if (parameters.getListRecommendationLists().keySet().size()==1){
+                Desktop.getDesktop().open(new File(parameters.getOutputFolder()+"/"+parameters.getRecommendationListName((String) parameters.getListRecommendationLists().keySet().toArray()[0])));
+            } else {
+                Desktop.getDesktop().open(new File(parameters.getOutputFolder()));
+            }
+        
+        } catch (IOException ex) {
+            Logger.getLogger(UnexpectednessEvaluationFrame.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }//GEN-LAST:event_btnRunActionPerformed
 
     private void btnOutputFolderActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnOutputFolderActionPerformed
@@ -1611,6 +1628,10 @@ public class UnexpectednessEvaluationFrame extends javax.swing.JFrame {
     private void rdbSplinedotActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rdbSplinedotActionPerformed
         parameters.setKpcaKernelFunction("splinedot");
     }//GEN-LAST:event_rdbSplinedotActionPerformed
+
+    private void btnHelpActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnHelpActionPerformed
+        
+    }//GEN-LAST:event_btnHelpActionPerformed
 
     /**
      * @param args the command line arguments
