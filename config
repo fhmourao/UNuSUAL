@@ -1,5 +1,5 @@
 #input output
-history="/var/tmp/Thiago/Hybridization/RecommendationFramework/MD/Datasets/100k/train.txt"
+history="/var/tmp/MD/Datasets/100k/train.txt"
 featuresfile="/var/tmp/Thiago/Hybridization/RecommendationFramework/MD/Datasets/100k/u.item.solved"
 recommendation="/var/tmp/Thiago/Hybridization/RecommendationFramework/MD/Experiments/100k/Recommendations/top100/UserKNN/predictions_top-100.out"
 ppm="/var/tmp/Thiago/Hybridization/RecommendationFramework/MD/Experiments/100k/Recommendations/top100/Nonpersonalized/predictions_top-100.out"
@@ -8,7 +8,7 @@ outputname="UserKNN"
 top="100"
 
 #metrics
-metrics="1 2 3"
+metrics="1 2 3 4 5"
 
 #characterization
 statisticalSummarization=1
@@ -29,5 +29,5 @@ spearman=0
 combination=1
 svd=1
 pca=1
-kpca=1
-kernel="polydot"
+kpca=0
+kernel="rbfdot"

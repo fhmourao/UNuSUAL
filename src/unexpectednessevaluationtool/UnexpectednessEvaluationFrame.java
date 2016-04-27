@@ -5,6 +5,8 @@
  */
 package unexpectednessevaluationtool;
 
+import java.awt.Component;
+import java.awt.Container;
 import java.awt.Desktop;
 import java.awt.event.KeyEvent;
 import java.io.BufferedReader;
@@ -1332,7 +1334,7 @@ public class UnexpectednessEvaluationFrame extends javax.swing.JFrame {
             
             //Running the runtime. It blocks the main threa, attempt to use new Thread and use
             // the swing utilities for invoke it later.
-            Scanner scan = new Scanner(System.in);
+            /*Scanner scan = new Scanner(System.in);
             String line;
             try{
                 Runtime rt = Runtime.getRuntime();
@@ -1349,22 +1351,71 @@ public class UnexpectednessEvaluationFrame extends javax.swing.JFrame {
 
             } catch (IOException e) {
                 System.out.println("Erro.");
-            }
+            }*/
             
-        }
-        
-        try {
-            if (parameters.getListRecommendationLists().keySet().size()==1){
-                Desktop.getDesktop().open(new File(parameters.getOutputFolder()+"/"+parameters.getRecommendationListName((String) parameters.getListRecommendationLists().keySet().toArray()[0])));
-            } else {
-                Desktop.getDesktop().open(new File(parameters.getOutputFolder()));
+            try{
+                enableComponents(false);
+                SwingWorker sw = new SwingWorker(this, this.parameters);
+                sw.execute();
+            } catch (Exception e){
+                lblStatus.setText("Execution error.");
+            } finally {
+                enableComponents(true);
             }
-        
-        } catch (IOException ex) {
-            Logger.getLogger(UnexpectednessEvaluationFrame.class.getName()).log(Level.SEVERE, null, ex);
         }
+        
+        
     }//GEN-LAST:event_btnRunActionPerformed
 
+    /*
+    Set text of the label status. Method used by the SwingWorker
+    */
+    public void setBashCallOutput(String text){
+        lblStatus.setText(text);
+    }
+    
+    public void enableComponents(boolean enable) {
+        btnSelectConsumptionHistory.setEnabled(enable);
+        btnSelectConsumptionHistory.setEnabled(enable);
+        btnOutputFolder.setEnabled(enable);
+        btnAddRecommendation.setEnabled(enable);
+        btnPPM.setEnabled(enable);
+        tblRecommendationLists.setEnabled(enable);
+        chkMetric1.setEnabled(enable);
+        chkMetric2.setEnabled(enable);
+        chkMetric3.setEnabled(enable);
+        chkMetric4.setEnabled(enable);
+        chkMetric5.setEnabled(enable);
+        chkEnableStatisticalSummarization.setEnabled(enable);
+        chkMean.setEnabled(enable);
+        chkMedian.setEnabled(enable);
+        chkStandardDeviation.setEnabled(enable);
+        chkRank.setEnabled(enable);
+        chkEnableStatisticalAnalysis.setEnabled(enable);
+        chkItemPopularity.setEnabled(enable);
+        chkUserBias.setEnabled(enable);
+        chkHistorySize.setEnabled(enable);
+        chkSimilarityAnalysis.setEnabled(enable);
+        chkPearson.setEnabled(enable);
+        chkSpearman.setEnabled(enable);
+        chkKendall.setEnabled(enable);
+        chkEnableCombinationAnalysis.setEnabled(enable);
+        chkSVD.setEnabled(enable);
+        chkPCA.setEnabled(enable);
+        chkKPCA.setEnabled(enable);
+        rdbAnovadot.setEnabled(enable);
+        rdbPolydot.setEnabled(enable);
+        rdbLaplacedot.setEnabled(enable);
+        rdbVanilladot.setEnabled(enable);
+        rdbTanhdot.setEnabled(enable);
+        rdbBesseldot.setEnabled(enable);
+        rdbRdfdot.setEnabled(enable);
+        rdbSplinedot.setEnabled(enable);
+        btnRun.setEnabled(enable);
+        btnHelp.setEnabled(enable);
+    }
+    
+    
     private void btnOutputFolderActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnOutputFolderActionPerformed
         //Create a file chooser
         final JFileChooser fc = new JFileChooser();
@@ -1409,7 +1460,6 @@ public class UnexpectednessEvaluationFrame extends javax.swing.JFrame {
 
     private void tblRecommendationListsKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_tblRecommendationListsKeyReleased
         if (evt.getKeyCode()==KeyEvent.VK_ENTER){
-            System.out.println("Cheguei");
             int row = tblRecommendationLists.getSelectedRow();
             int col = tblRecommendationLists.getSelectedColumn();
             if (col==1){
@@ -1644,7 +1694,6 @@ public class UnexpectednessEvaluationFrame extends javax.swing.JFrame {
          */
         try {
             for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
-                System.out.println(info.getName());
                 if ("Nimbus".equals(info.getName())) {
                     javax.swing.UIManager.setLookAndFeel(info.getClassName());
                     break;
