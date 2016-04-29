@@ -1354,13 +1354,11 @@ public class UnexpectednessEvaluationFrame extends javax.swing.JFrame {
             }*/
             
             try{
-                enableComponents(false);
+                
                 SwingWorker sw = new SwingWorker(this, this.parameters);
                 sw.execute();
             } catch (Exception e){
                 lblStatus.setText("Execution error.");
-            } finally {
-                enableComponents(true);
             }
         }
         
@@ -1376,7 +1374,7 @@ public class UnexpectednessEvaluationFrame extends javax.swing.JFrame {
     
     public void enableComponents(boolean enable) {
         btnSelectConsumptionHistory.setEnabled(enable);
-        btnSelectConsumptionHistory.setEnabled(enable);
+        btnSelectItemsFeatures.setEnabled(enable);
         btnOutputFolder.setEnabled(enable);
         btnAddRecommendation.setEnabled(enable);
         btnPPM.setEnabled(enable);

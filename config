@@ -1,9 +1,9 @@
 #input output
-history="/var/tmp/MD/Datasets/100k/train.txt"
-featuresfile="/var/tmp/Thiago/Hybridization/RecommendationFramework/MD/Datasets/100k/u.item.solved"
-recommendation="/var/tmp/Thiago/Hybridization/RecommendationFramework/MD/Experiments/100k/Recommendations/top100/UserKNN/predictions_top-100.out"
-ppm="/var/tmp/Thiago/Hybridization/RecommendationFramework/MD/Experiments/100k/Recommendations/top100/Nonpersonalized/predictions_top-100.out"
-outputpath="/home/labpi/Documentos"
+history="/home/thiago/Documents/UFSJ/PESQUISA/MovieLens100k/consumption_history.txt"
+featuresfile="/home/thiago/Documents/UFSJ/PESQUISA/MovieLens100k/u.item"
+recommendation="/home/thiago/Documents/UFSJ/PESQUISA/MovieLens100k/UserKNN.out"
+ppm="/home/thiago/Documents/UFSJ/PESQUISA/MovieLens100k/Non_personalized_predictor_PPM.out"
+outputpath="/home/thiago/Documents/UFSJ/PESQUISA"
 outputname="UserKNN"
 top="100"
 
@@ -16,18 +16,18 @@ mean=1
 median=1
 sd=1
 rank=1
-statisticalAnalysis=0
-binSize=0.0
-itemPopularity=0
-historysize=0
-userbias=0
-similarity=0
-kendall=0
+statisticalAnalysis=1
+binSize=0.1
+itemPopularity=1
+historysize=1
+userbias=1
+similarity=1
+kendall=1
 pearson=0
 spearman=0
 #combination
 combination=1
 svd=1
 pca=1
-kpca=0
-kernel="rbfdot"
+kpca=1
+kernel="polydot"

@@ -30,6 +30,9 @@ public class SwingWorker extends javax.swing.SwingWorker<Integer, String> {
 
     @Override
     protected Integer doInBackground() throws Exception {
+        
+        frame.enableComponents(false);
+        
         Runtime rt = Runtime.getRuntime();
         String[] commands = {"bash","evaluateUnexpectedness.sh"};
         Process proc = rt.exec(commands);
@@ -38,7 +41,7 @@ public class SwingWorker extends javax.swing.SwingWorker<Integer, String> {
         BufferedReader reader = new BufferedReader(new InputStreamReader(stdout));
         String line;
         while((line = reader.readLine())!=null){
-            frame.setBashCallOutput(line);
+            frame.setBashCallOutput("Status: "+line);
         }
         
         try {
@@ -52,6 +55,7 @@ public class SwingWorker extends javax.swing.SwingWorker<Integer, String> {
             Logger.getLogger(UnexpectednessEvaluationFrame.class.getName()).log(Level.SEVERE, null, ex);
         }
         
+        frame.enableComponents(true);
         return 1;
     }
     
